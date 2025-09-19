@@ -46,7 +46,7 @@ def move():
         snake.pop(0)
 
     # --- Mover comida un pasito aleatorio ---
-    direction = choice([vector(1, 0), vector(-1, 0), vector(0, 1), vector(0, -1)])
+    direction = choice([vector(10, 0), vector(-10, 0), vector(0, 10), vector(0, -10)])
     new_food = food.copy()
     new_food.move(direction)
 
