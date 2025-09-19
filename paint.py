@@ -8,76 +8,76 @@ Exercises
 4. Complete triangle.
 5. Add width parameter.
 """
-
-from turtle import *
-
+import turtle
+import math
 from freegames import vector
 
 
 def line(start, end):
     """Draw line from start to end."""
-    up()
-    goto(start.x, start.y)
-    down()
-    goto(end.x, end.y)
+    turtle.up()
+    turtle.goto(start.x, start.y)
+    turtle.down()
+    turtle.goto(end.x, end.y)
 
 
 def square(start, end):
     """Draw square from start to end."""
-    up()
-    goto(start.x, start.y)
-    down()
-    begin_fill()
+    turtle.up()
+    turtle.goto(start.x, start.y)
+    turtle.down()
+    turtle.begin_fill()
 
-    for count in range(4):
-        forward(end.x - start.x)
-        left(90)
+    side = end.x - start.x
+    for _ in range(4):
+        turtle.forward(side)
+        turtle.left(90)
 
-    end_fill()
+    turtle.end_fill()
 
-
-import math  # solo si no está importado
 
 def circle(start, end):
-    """Dibuja un círculo usando start como centro y la distancia a end como radio."""
-    up()
-    goto(start.x, start.y - math.dist([start.x, start.y], [end.x, end.y]))
-    down()
-    begin_fill()
+    """Draw circle from start to end (start=center, end=radio)."""
+    turtle.up()
     radius = math.dist([start.x, start.y], [end.x, end.y])
-    turtle_circle(radius)
-    end_fill()
-
+    turtle.goto(start.x, start.y - radius)  # mover a la parte baja del círculo
+    turtle.setheading(0)  # orientación estándar
+    turtle.down()
+    turtle.begin_fill()
+    turtle.circle(radius)
+    turtle.end_fill()
 
 
 def rectangle(start, end):
-    """Dibuja un rectángulo usando start y end como esquinas opuestas."""
-    up()
-    goto(start.x, start.y)
-    down()
-    begin_fill()
+    """Draw rectangle using start and end as opposite corners."""
+    turtle.up()
+    turtle.goto(start.x, start.y)
+    turtle.down()
+    turtle.begin_fill()
+
     width = end.x - start.x
     height = end.y - start.y
     for _ in range(2):
-        forward(width)
-        left(90)
-        forward(height)
-        left(90)
-    end_fill()
+        turtle.forward(width)
+        turtle.left(90)
+        turtle.forward(height)
+        turtle.left(90)
 
+    turtle.end_fill()
 
 
 def triangle(start, end):
-    """Dibuja un triángulo usando start y end como vértices."""
-    up()
-    goto(start.x, start.y)
-    down()
-    begin_fill()
-    goto(end.x, end.y)          # segundo vértice
-    goto(start.x, end.y)        # tercer vértice
-    goto(start.x, start.y)      # cerrar triángulo
-    end_fill()
+    """Draw triangle using start and end as base corners."""
+    turtle.up()
+    turtle.goto(start.x, start.y)
+    turtle.down()
+    turtle.begin_fill()
 
+    turtle.goto(end.x, end.y)      # segundo vértice
+    turtle.goto(start.x, end.y)    # tercer vértice
+    turtle.goto(start.x, start.y)  # cerrar
+
+    turtle.end_fill()
 
 
 def tap(x, y):
@@ -98,20 +98,25 @@ def store(key, value):
     state[key] = value
 
 
+# ----------- Configuración del programa -----------
 state = {'start': None, 'shape': line}
-setup(420, 420, 370, 0)
-onscreenclick(tap)
-listen()
-onkey(undo, 'u')
-onkey(lambda: color('black'), 'K')
-onkey(lambda: color('white'), 'W')
-onkey(lambda: color('green'), 'G')
-onkey(lambda: color('blue'), 'B')
-onkey(lambda: color('red'), 'R')
-onkey(lambda: color('yellow'), 'Y')
-onkey(lambda: store('shape', line), 'l')
-onkey(lambda: store('shape', square), 's')
-onkey(lambda: store('shape', circle), 'c')
-onkey(lambda: store('shape', rectangle), 'r')
-onkey(lambda: store('shape', triangle), 't')
-done()
+turtle.setup(420, 420, 370, 0)
+turtle.onscreenclick(tap)
+turtle.listen()
+
+# Atajos de teclado
+turtle.onkey(turtle.undo, 'u')
+turtle.onkey(lambda: turtle.color('black'), 'K')
+turtle.onkey(lambda: turtle.color('white'), 'W')
+turtle.onkey(lambda: turtle.color('green'), 'G')
+turtle.onkey(lambda: turtle.color('blue'), 'B')
+turtle.onkey(lambda: turtle.color('red'), 'R')
+turtle.onkey(lambda: turtle.color('yellow'), 'Y')
+
+turtle.onkey(lambda: store('shape', line), 'l')
+turtle.onkey(lambda: store('shape', square), 's')
+turtle.onkey(lambda: store('shape', circle), 'c')
+turtle.onkey(lambda: store('shape', rectangle), 'r')
+turtle.onkey(lambda: store('shape', triangle), 't')
+
+turtle.done()
