@@ -36,19 +36,48 @@ def square(start, end):
     end_fill()
 
 
+import math  # solo si no está importado
+
 def circle(start, end):
-    """Draw circle from start to end."""
-    pass  # TODO
+    """Dibuja un círculo usando start como centro y la distancia a end como radio."""
+    up()
+    goto(start.x, start.y - math.dist([start.x, start.y], [end.x, end.y]))
+    down()
+    begin_fill()
+    radius = math.dist([start.x, start.y], [end.x, end.y])
+    turtle_circle(radius)
+    end_fill()
+
 
 
 def rectangle(start, end):
-    """Draw rectangle from start to end."""
-    pass  # TODO
+    """Dibuja un rectángulo usando start y end como esquinas opuestas."""
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    width = end.x - start.x
+    height = end.y - start.y
+    for _ in range(2):
+        forward(width)
+        left(90)
+        forward(height)
+        left(90)
+    end_fill()
+
 
 
 def triangle(start, end):
-    """Draw triangle from start to end."""
-    pass  # TODO
+    """Dibuja un triángulo usando start y end como vértices."""
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    goto(end.x, end.y)          # segundo vértice
+    goto(start.x, end.y)        # tercer vértice
+    goto(start.x, start.y)      # cerrar triángulo
+    end_fill()
+
 
 
 def tap(x, y):
@@ -79,6 +108,7 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+onkey(lambda: color('yellow'), 'Y')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
