@@ -73,3 +73,38 @@ Asegúrate de tener instalado Python (>=3.8) y la librería `freegames`.
 
 ```bash
 pip install freegames
+
+# 🕹️ Pac-Man Modificado
+
+## 📌 Descripción  
+Este proyecto es una versión modificada de un videojuego estilo **Pac-Man**, desarrollado en Python.  
+El objetivo fue experimentar con mecánicas del juego y aplicar buenas prácticas de desarrollo colaborativo mediante **Git y GitHub**.  
+
+---
+
+## 🔄 Cambios Realizados  
+
+- 🎯 **Nuevo tablero**  
+  Se rediseñó el mapa del juego con un laberinto alternativo, generando una experiencia distinta a la original.  
+
+- 👻 **Fantasmas más rápidos**  
+  Se aumentó la velocidad de movimiento de los enemigos, incrementando el nivel de dificultad.  
+
+- 🧠 **Fantasmas más inteligentes**  
+  Se mejoró la lógica de movimiento de los fantasmas para que persigan al jugador de forma más eficiente.
+
+Controles:
+    ↑ Flecha Arriba  - Mover Pac-Man hacia arriba
+    ↓ Flecha Abajo  - Mover Pac-Man hacia abajo
+    ← Flecha Izquierda - Mover Pac-Man hacia la izquierda
+    → Flecha Derecha - Mover Pac-Man hacia la derecha
+
+Cómo Ejecutar:
+1. Asegúrate de tener Python 3.6+ instalado.
+2. Instala las dependencias necesarias:
+    pip install freegames
+3. Ejecuta el juego desde el terminal o Anaconda Prompt:
+    python pacman.py
+
+Objetivo:
+Recoger todos los puntos del tablero evitando a los fantasmas.
