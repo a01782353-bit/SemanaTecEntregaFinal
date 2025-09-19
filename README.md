@@ -44,3 +44,32 @@ Permite dibujar figuras básicas y cambiar colores y grosor de línea.
 1. Clonar el repositorio:
    ```bash
    git clone https://github.com/tuusuario/paint-turtle.git
+# 🐍 Snake Game con Comida Móvil y Colores Aleatorios  
+
+Este es un juego clásico de **Snake** en Python utilizando la librería [`freegames`](https://pypi.org/project/freegames/).  
+En esta versión mejorada, la comida no solo aparece en posiciones aleatorias, sino que además **se mueve dentro de la ventana de juego** y **cambia de color en cada partida**, al igual que la serpiente.  
+
+---
+
+## 🎮 Características
+- La serpiente crece cada vez que come la comida.
+- La comida se mueve un paso en direcciones aleatorias (arriba, abajo, izquierda, derecha) sin salirse de la ventana.
+- Los colores de la serpiente y de la comida se eligen de manera **aleatoria** al inicio de cada partida (no pueden ser iguales).
+- El juego termina si la serpiente choca con los bordes o consigo misma.
+- El puntaje se muestra en la terminal (longitud de la serpiente).
+
+---
+
+## 🕹️ Controles
+- **Flecha →** : Mover a la derecha  
+- **Flecha ←** : Mover a la izquierda  
+- **Flecha ↑** : Mover hacia arriba  
+- **Flecha ↓** : Mover hacia abajo  
+
+---
+
+## 🚀 Requisitos
+Asegúrate de tener instalado Python (>=3.8) y la librería `freegames`.  
+
+```bash
+pip install freegames
